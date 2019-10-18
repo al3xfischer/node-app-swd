@@ -1,14 +1,3 @@
-// var assert = require('assert');
-
-// describe('Array', () => {
-//   describe('#indexOf()', () => {
-//     it('should return -1 when the value is not present',async () => {
-//         const res = await agent.get('/').type('text/html');
-//       assert.equal([1, 2, 3].indexOf(4), -1);
-//     });
-//   });
-// });
-
 var boot = require("../bin/www").boot,
   shutdown = require("../bin/www").shutdown,
   port = require("../bin/www").port,
