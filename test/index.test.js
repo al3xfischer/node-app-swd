@@ -18,7 +18,7 @@ describe("server", () => {
     });
     it("should render h1 title", done => {
       superagent.get("http://localhost:" + port).end((err, res) => {
-        expect(res.text).contain("<h1>Express</h1>");
+        expect(res.text).contain("<h1>SW Deployment</h1>");
         done();
       });
     });
