@@ -1,6 +1,6 @@
-var boot = require("../bin/www").boot,
-  shutdown = require("../bin/www").shutdown,
-  port = require("../bin/www").port,
+var boot = require("./testServer").boot,
+  shutdown = require("./testServer").shutdown,
+  port = require("./testServer").port,
   superagent = require("superagent"),
   expect = require("expect.js");
 

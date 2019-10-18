@@ -27,9 +27,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-// server.listen(port);
-// server.on('error', onError);
-// server.on('listening', onListening);
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -90,16 +90,3 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-const boot = () => {
-  server.listen(app.get('port'),() => {
-    console.info('Express server listening on port ' + app.get('port'));
-  });
-}
-
-const shutdown = () => {
-  server.close();
-}
-
-module.exports.boot = boot;
-module.exports.shutdown = shutdown;
