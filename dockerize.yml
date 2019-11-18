@@ -42,16 +42,3 @@ stages:
           targetPath: '$(Pipeline.Workspace)'
           artifact: 'deployment.yml'
           publishLocation: 'pipeline'
-      
-      - task: Kubernetes@1
-        inputs:
-          connectionType: 'Azure Resource Manager'
-          azureSubscriptionEndpoint: 'Money (4bd08fa4-df26-40d7-9b2f-ae41699f944b)'
-          azureResourceGroup: 'Kub'
-          kubernetesCluster: 'fhwn19-kub'
-          command: 'apply'
-          useConfigurationFile: true
-          configuration: 'deployment.yml'
-          secretType: 'dockerRegistry'
-          containerRegistryType: 'Azure Container Registry'
-
