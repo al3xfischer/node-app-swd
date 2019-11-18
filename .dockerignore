@@ -1,3 +1,7 @@
 node_modules
 npm-dub.log
 test
+readme.md
+docu
+dockerize.yml
+deployment.yml
