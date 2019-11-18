@@ -1,0 +1,56 @@
+# Node.js Express Web App to Linux on Azure
+# Build a Node.js Express app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- dockerize
+
+variables:
+
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: '161ae87f-baa5-4e41-bee5-890ec457a972'
+  
+  # Web app name
+  webAppName: ''
+  
+  # Environment name
+  environmentName: ''
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+      
+    steps:
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'Docker Hub'
+          command: 'buildAndPush'
+          Dockerfile: '**/Dockerfile'
+      
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Pipeline.Workspace)'
+          artifact: 'deployment.yml'
+          publishLocation: 'pipeline'
+      
+      - task: Kubernetes@1
+        inputs:
+          connectionType: 'Azure Resource Manager'
+          azureSubscriptionEndpoint: 'Money (4bd08fa4-df26-40d7-9b2f-ae41699f944b)'
+          azureResourceGroup: 'Kub'
+          kubernetesCluster: 'fhwn19-kub'
+          command: 'apply'
+          useConfigurationFile: true
+          configuration: 'deployment.yml'
+          secretType: 'dockerRegistry'
+          containerRegistryType: 'Azure Container Registry'
+
