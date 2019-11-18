@@ -32,7 +32,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: al3xfischer/nodeapp
+      - image: al3xfischer/nodeapp:latest
         name: nodeapp
         ports:
         - containerPort: 80
