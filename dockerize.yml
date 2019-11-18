@@ -36,6 +36,7 @@ stages:
           repository: 'al3xfischer/nodeapp'
           command: 'buildAndPush'
           Dockerfile: '**/Dockerfile'
+          tags: 'latest'
       
       - task: PublishPipelineArtifact@1
         inputs:
