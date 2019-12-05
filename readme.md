@@ -1,6 +1,6 @@
 ## SWD-Website
 
-[Site](http://http://40.67.253.102/)
+[Site](http://40.67.253.102/)
 
 ## Docker registry
 
