@@ -18,6 +18,8 @@ Docker and K8s.
 
 After every commit to the dockerize branch in the git repository, the build pipeline creates a Docker image and pushes it to Docker Hub. After that, a release is created, and the changes are getting deployed to an Azure Kubernetes Service. From there, the app is accessible via the internet.  A new release is created fully automated to exonerate the developers.
 
+[Screenhots](https://github.com/al3xfischer/node-app-swd/tree/dockerize/docu)
+
 ## Files
 
 [Build Pipeline](https://github.com/al3xfischer/node-app-swd/blob/dockerize/dockerize.yml)  
