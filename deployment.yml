@@ -33,6 +33,7 @@ spec:
     spec:
       containers:
       - image: al3xfischer/nodeapp:latest
+        imagePullPolicy: Always
         name: nodeapp
         ports:
         - containerPort: 80
