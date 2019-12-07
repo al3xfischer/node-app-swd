@@ -32,7 +32,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: al3xfischer/nodeapp:latest
+      - image: al3xfischer/nodeapp
         imagePullPolicy: Always
         name: nodeapp
         ports:
