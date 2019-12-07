@@ -25,11 +25,18 @@ stages:
   displayName: Build stage
   jobs:  
   - job: Build
+    variables:
+    - name: TAG
+      value: $(Build.BuildId)
     displayName: Build
     pool:
       vmImage: $(vmImageName)
           
     steps:
+    - script: |
+        envsubst '${TAG}' < deployment-template.yml > deployment.yml
+      displayName: Replace Environment Vriables
+
     - task: NodeTool@0
       inputs:
         versionSpec: '10.x'
