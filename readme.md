@@ -35,5 +35,5 @@ During the release process, the deployment.yml is applied to the Kubernetes clus
 [Build Pipeline](https://github.com/al3xfischer/node-app-swd/blob/dockerize/dockerize.yml)  
 Is used to create a Docker image and to publish it to Docker Hub.
 
-[K8s Deployment](https://github.com/al3xfischer/node-app-swd/blob/dockerize/deployment.yml)  
+[K8s Deployment](https://github.com/al3xfischer/node-app-swd/blob/dockerize/deployment-template.yml)  
 The deployment file for Kubernetes to configure the cluster.
